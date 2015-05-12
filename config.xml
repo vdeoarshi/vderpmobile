@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.frappe.mobile" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>FrappeMobile</name>
+<widget id="io.frappe.mobile" version="0.0.7" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>ERPNext</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Mobile Client for ERPNext
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
-        Apache Cordova Team
+    <author email="hello@erpnext.com" href="https://erpnext.com">
+        Frappe Technologies Private Limited
     </author>
     <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" version="1" />
@@ -49,6 +49,10 @@
     </platform>
 
     <platform name="ios">
+        <preference name="StatusBarOverlaysWebView" value="false" />
+        <preference name="StatusBarBackgroundColor" value="#ffffff" />
+        <preference name="StatusBarStyle" value="default" />
+
         <icon src="res/ios/icons/appicon.png" width="57" height="57" />
         <icon src="res/ios/icons/appicon@2x.png" width="114" height="114" />
 
