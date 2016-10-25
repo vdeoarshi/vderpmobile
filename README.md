@@ -1,5 +1,15 @@
 ### Mobile app for Frappe Framework
 
+This is a Cordova based container for Frappe Framework.
+
+This provides local server selection, login and desk pages that will load application files (HTML/JS/CSS) from the server.
+
+Compatible with Frappe version 6/7+
+
+#### Requirements
+
+Cordova
+
 #### Install Platforms
 
 ```
