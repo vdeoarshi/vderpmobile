@@ -22,6 +22,7 @@ $ cordova platform add android
 ```
 $ cordova plugin add cordova-plugin-statusbar
 $ cordova plugin add cordova-plugin-inappbrowser
+$ cordova plugin add cordova-plugin-file
 ```
 
 #### Build iOS
