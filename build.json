@@ -1,10 +1,10 @@
 {
     "android": {
-        "release": {
-            "keystore": "path-to-your-key.keystore",
-            "storePassword": "your-store-password",
-            "alias": "your-alias",
-            "password" : "your-password",
+        "debug": {
+            "keystore": "build/debug.keystore",
+            "storePassword": "debug123",
+            "alias": "alias_name",
+            "password" : "debug123",
             "keystoreType": ""
         }
     }
