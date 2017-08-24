@@ -50,7 +50,7 @@ $ cordova build android --release
 
 For debug, you don't need to add any keystore.
 
-For release, add this to your `build.json`
+For release, generate a `release.keystore` using this [link](https://developer.android.com/studio/publish/app-signing.html). Put the file in the `build` directory and add this to your `build.json`
 ```
 {
     "android": {
