@@ -48,7 +48,30 @@ $ cordova build android --release
 
 #### Adding Android Keys
 
-Update your android keys to `build.json`
+For debug, you don't need to add any keystore.
+
+For release, add this to your `build.json`
+```
+{
+    "android": {
+        "debug": {
+            "keystore": "build/debug.keystore",
+            "storePassword": "debug123",
+            "alias": "alias_name",
+            "password" : "debug123",
+            "keystoreType": ""
+        },
+        // add your release key configuration
+        "release": {
+            "keystore": "build/release.keystore",
+            "storePassword": "password",
+            "alias": "alias_name",
+            "password" : "password",
+            "keystoreType": ""
+        }
+    }
+}
+```
 
 #### License
 
