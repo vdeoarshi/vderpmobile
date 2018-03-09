@@ -52,6 +52,7 @@
         <preference name="StatusBarOverlaysWebView" value="false" />
         <preference name="StatusBarBackgroundColor" value="#ffffff" />
         <preference name="StatusBarStyle" value="default" />
+        <preference name="Orientation" value="all" />
 
         <icon src="res/ios/icons/appicon.png" width="57" height="57" />
         <icon src="res/ios/icons/appicon@2x.png" width="114" height="114" />
