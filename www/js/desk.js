@@ -50,12 +50,8 @@ window.desk = {
 			}
 
 		}).error(function(e) {
-			if(e.status === 500) {
-				desk.start("v6");
-			}
-			else {
-				desk.logout();
-			}
+			alert(`${localStorage.server} failed with status ${e.status}`);
+			desk.logout();
 		});
 	},
 	setup_assets: function() {
