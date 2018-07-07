@@ -78,13 +78,13 @@ window.desk = {
 
 		// override logout
         frappe.app.redirect_to_login = function() {
-			localStorage.session_id = null;
-        	window.location.href = "index.html";
+			localStorage.removeItem('session_id');
+			window.location = "index.html";
 		}
 	},
 	logout: function() {
-		localStorage.session_id = null;
-		window.location.href = "/index.html"
+		localStorage.removeItem('session_id');
+		window.location = "index.html"
 	}
 }
 
