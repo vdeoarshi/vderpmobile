@@ -50,7 +50,9 @@ window.desk = {
 			}
 
 		}).error(function(e) {
-			alert(`${localStorage.server} failed with status ${e.status}`);
+			if(![403, 401].includes(parseInt(e.status))) {
+				alert(`${localStorage.server} failed with status ${e.status}`);
+			}
 			desk.logout();
 		});
 	},
