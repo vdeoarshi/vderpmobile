@@ -11,6 +11,7 @@ var app = {
     bind_events: function() {
 		app.bind_select_server();
 		app.bind_login();
+		app.bind_otp_verification();
 		app.bind_change_server();
     },
 	bind_login: function() {
@@ -27,10 +28,14 @@ var app = {
 					device: "mobile"
 				}
 			}).success(function(data, status, xhr) {
-				localStorage.user = $("#usr").val();
-				var cookie_source = xhr.getResponseHeader('Set-Cookie');
-				localStorage.session_id = common.get_cookie("sid", cookie_source);
-				app.start_desk();
+				if(data && data['message']=='Logged In') {
+					localStorage.user = $("#usr").val();
+					var cookie_source = xhr.getResponseHeader('Set-Cookie');
+					localStorage.session_id = common.get_cookie("sid", cookie_source);
+					app.start_desk();
+				} else if(data && data["verification"]) {
+					app.show_otp(data);
+				}
 			}).error(function() {
 				common.msgprint("Invalid Login");
 				$me.prop("disabled", false);
@@ -38,6 +43,33 @@ var app = {
 				// $("#usr").val("");
 				// $("#pwd").val("");
 			});
+			return false;
+		});
+	},
+	bind_otp_verification: function() {
+		$(".btn-verify").on("click", function() {
+
+			$me = $(this);
+			$me.prop("disabled", true);
+			$.ajax({
+				method: "POST",
+				url: localStorage.server + "/api/method/login",
+				data: {
+					cmd: "login",
+					otp: $("#otp").val(),
+					tmp_id: localStorage.tmp_id,
+					device: "mobile"
+				}
+			}).success(function(data, status, xhr) {
+				localStorage.user = $("#usr").val();
+				var cookie_source = xhr.getResponseHeader('Set-Cookie');
+				localStorage.session_id = common.get_cookie("sid", cookie_source);
+				app.start_desk();
+			}).error(function() {
+				common.msgprint("Invalid Otp");
+				$me.prop("disabled", false);
+			});
+
 			return false;
 		});
 	},
@@ -132,6 +164,11 @@ var app = {
         $(".div-select-server").addClass("hide");
         $(".div-login").removeClass("hide");
 		$(".current-server").text(localStorage.server);
+	},
+	show_otp: function(data) {
+		$(".div-login").addClass("hide");
+		$(".div-otp").removeClass("hide");
+		localStorage.tmp_id = data["tmp_id"];
 	},
 	if_session_valid: function(if_yes, if_no) {
 		app.set_sid_cookie();
