@@ -1,10 +1,10 @@
 {
     "android": {
         "debug": {
-            "keystore": "build/debug.keystore",
-            "storePassword": "debug123",
-            "alias": "alias_name",
-            "password" : "debug123",
+            "keystore": "trajec.keystore",
+            "storePassword": "priyanshi",
+            "alias": "teapp",
+            "password" : "priyanshi",
             "keystoreType": ""
         }
     }
